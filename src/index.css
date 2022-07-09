@@ -1,7 +1,7 @@
 html {
   scroll-behavior: smooth;
 }
-#root {
+/* #root {
      --main-text: #9B9FAA;
       --secondary-text: #212121;
           
@@ -11,17 +11,17 @@ html {
       --secondary-background: #F0F1F3;
       --dark-background: #264061;
       --modal-background: rgba(33, 33, 33, 0.12);
-}
-
+} */
+/* 
 body {
 
-  color: var(--main-text);
+  /* color: var(--main-text);
   background-color: var(--main-background);
   /* font-family:  */
-    font-size: 14px;
+    /* font-size: 14px;
   font-weight: 400;
-  line-height: 1.2;
-}
+  line-height: 1.2; */
+/* }  */
 
 h1,
 h2,
