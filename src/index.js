@@ -5,16 +5,25 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from '@mui/material';
 import { theme } from './theme';
+import { store, persistor } from './redux/store';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+// import { PersistGate } from 'redux-persist/integration/react';
 
 import './fonts/fonts.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+ReactDOM.createRoot(document.querySelector('#root')).render(
+  <Provider store={store}>
+    {/* <PersistGate loading={null} persistor={persistor}> */}
+    <React.StrictMode>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
+      </BrowserRouter>
+    </React.StrictMode>
+    {/* </PersistGate> */}
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
