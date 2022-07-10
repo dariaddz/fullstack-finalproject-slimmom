@@ -1,0 +1,80 @@
+.diaryAddProductForm {
+  margin-top: 40px;
+  position: relative;
+}
+
+.form {
+  display: flex;
+  align-items: baseline;
+}
+
+.hiddenText {
+  display: none;
+}
+
+/* Селект */
+
+.selectProduct {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+
+  overflow-y: scroll;
+}
+.optionStyle {
+  color: grey;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .selectProduct {
+    width: 70%;
+    height: 150px;
+  }
+}
+
+/* Опция селекта */
+
+.selectProduct > option {
+  padding: 5px 5px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  transition: all 250ms linear;
+}
+.selectProduct > option:first-child:hover {
+  background-color: white;
+  color: grey;
+  opacity: 80%;
+  cursor: default;
+}
+
+/* Опция при ховере */
+
+.selectProduct > option:hover {
+  background-color: var(--color-active);
+  color: white;
+
+  transition: all 250ms linear;
+  overflow: visible;
+
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hiddenText {
+    display: block;
+  }
+
+  .hiddenIcon {
+    display: none;
+  }
+}

@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from '@mui/material';
 import { theme } from './theme';
 
+import './fonts/fonts.css';
+
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
