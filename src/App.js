@@ -1,13 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { Layout } from './components/Layout';
+// Eugen
+// import { RegistrationPage } from './pages/RegistrationPage';
 // import logo from "./logo.svg";
 import './App.css';
 // import PrivateRoute from './components/PrivateRoute';
 // import PublicRoute from './components/PublicRoute';
 
 const HomePage = lazy(() => import('./pages/homePage'));
-// const RegistrationPage = lazy(() => import('./pages/registrationPage'));
+const RegistrationPage = lazy(() => import('./pages/RegistrationPage'));
 // const LoginPage = lazy(() => import('./pages/loginPage'));
 // const CalculatorPage = lazy(() => import('./pages/calculatorPage'));
 // const DiaryPage = lazy(() => import('./pages/DiaryPage'));
@@ -20,14 +22,14 @@ function App() {
           {/* Eugen */}
           <Route path="/" element={<Layout />}>
             {/* <Route path="/" element={<PublicRoute />}> */}
-            <Route path="/" element={<HomePage />} />
+            {/* <Route path="/" element={<HomePage />} /> */}
             {/* </Route> */}
 
             {/* <Route
             path="/register"
             element={<PublicRoute restricted redirectTo="/" />}
           > */}
-            {/* <Route path="/register" element={<RegistrationPage />} /> */}
+            <Route path="register" element={<RegistrationPage />} />
             {/* </Route> */}
             {/* <Route
             path="/login"

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -16,11 +16,11 @@ ReactDOM.createRoot(document.querySelector('#root')).render(
   <Provider store={store}>
     {/* <PersistGate loading={null} persistor={persistor}> */}
     <React.StrictMode>
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
           <App />
-        </ThemeProvider>
-      </BrowserRouter>
+        </BrowserRouter>
+      </ThemeProvider>
     </React.StrictMode>
     {/* </PersistGate> */}
   </Provider>

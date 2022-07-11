@@ -13,20 +13,20 @@ const typografyStyle = {
 };
 
 export const AuthNav = () => {
-  const [active, setActiv] = useState(true);
+  const [active, setActiv] = useState('signIn');
   const onClickSignIn = () => {
-    setActiv(!active);
+    setActiv('signIn');
   };
 
   const onClickRegister = () => {
-    setActiv(!active);
+    setActiv('register');
   };
   return (
     <Box>
       <Button sx={{ padding: '0' }}>
         <Typography
           sx={{ ...typografyStyle }}
-          color={active ? '#212121' : '#9B9FAA'}
+          color={active === 'signIn' ? '#212121' : '#9B9FAA'}
           onClick={onClickSignIn}
         >
           SIGN IN
@@ -36,7 +36,7 @@ export const AuthNav = () => {
         <Typography
           sx={{ ...typografyStyle }}
           onClick={onClickRegister}
-          color={!active ? '#212121' : '#9B9FAA'}
+          color={active === 'register' ? '#212121' : '#9B9FAA'}
         >
           REGISTRATION
         </Typography>
