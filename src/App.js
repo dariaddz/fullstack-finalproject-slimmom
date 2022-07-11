@@ -10,22 +10,57 @@ import {useSelector} from 'react-redux';
 
 function App() {
   const userData = useSelector(state => {
-        console.log("state:", state)
-         return state.userData.user});
-  const [showModal,setShowModal] = useState(false);
-  console.log("showModal:",showModal)
+     return state.userData.user});
+     const [showModal,setShowModal] = useState(false);
   return (
     <>
-    <MainPage>   
-    
-      {showModal &&userData &&(<Modal onClose={()=>setShowModal(false)}>{<DailyCalorieIntake/>}</Modal>)}
-     <DailyCaloriesForm onOpenModal={()=>{setShowModal(true) }}/>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          {/* <Route path="/" element={<PublicRoute />}> */}
+          <Route path="/" element={<HomePage />} >
+          <Route index  element={<MainPage/>} >
+          <Route index  element={<DailyCaloriesForm onOpenModal={()=>{setShowModal(true) }}/>} />
 
- 
-     </MainPage>
-  
+          <Route
+            path="/modal"
+            element={showModal &&userData &&(<Modal onClose={()=>setShowModal(false)}>{<DailyCalorieIntake/>}</Modal>)}/>
+
+        
+          {/* </Route> */}
+
+          {/* <Route
+            path="/register"
+            element={<PublicRoute restricted redirectTo="/" />}
+          > */}
+          {/* <Route path="/register" element={<RegistrationPage />} /> */}
+          {/* </Route> */}
+          {/* <Route
+            path="/login"
+            element={<PublicRoute restricted redirectTo="/" />}
+          > */}
+          {/* <Route path="/login" element={<LoginPage />} /> */}
+          {/* </Route> */}
+          {/* <Route
+            path="/calculator"
+            element={<PrivateRoute redirectTo="/login" />}
+          > */}
+          <Route path="/diary" element={<DiaryPage />} />
+          {/* </Route> */}
+          {/* <Route
+            path="*"
+            element={<PublicRoute restricted redirectTo="/diary" />}
+          >
+            <Route path="*" element={<NotFoundPage />} />
+          </Route> */}
+
+</Route>
+</Route>
+        </Routes>
+      </Suspense>
     </>
   );
 }
+
+
 
 export default App;
