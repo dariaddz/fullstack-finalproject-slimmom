@@ -13,7 +13,6 @@ import {
   deleteProductError,
   reset,
 } from './day_action';
-
 axios.defaults.baseURL = '';
 
 // Операция получения информации по определённому дню
