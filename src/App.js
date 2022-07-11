@@ -7,7 +7,9 @@ import MainPage from './components/MainPage/MainPage';
 import DailyCalorieIntake from './components/DailyCalorieIntake';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+
 import { Layout } from './components/Layout';
+
 
 // import PrivateRoute from './components/PrivateRoute';
 // import PublicRoute from './components/PublicRoute';
