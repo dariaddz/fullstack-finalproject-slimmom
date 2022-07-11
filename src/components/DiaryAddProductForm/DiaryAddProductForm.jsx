@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './DiaryAddProductForm.module.css';
-import { makeStyles } from '@mui/styles';
+// DZ временно закоментила до решения вопроса со стилизацией
+// import { makeStyles } from '@mui/styles';
 import TextField from '@mui/material/TextField';
 import Button from '../Button';
 import { useFormik } from 'formik';
@@ -11,30 +12,31 @@ import { addProduct } from '../../redux/day/day_operation';
 import { date } from '../../redux/day/day_selector';
 import axios from 'axios';
 
-const useStyles = makeStyles({
-  input: {
-    width: '100%',
-  },
-  nameInput: {
-    marginBottom: 30,
-    marginRight:30,
-    '@media (min-width: 768px)': {
-      width: 240,
-      marginRight: 30,
-    },
-  },
-  weightInput: {
-    marginBottom: 60,
-    '@media (min-width: 768px)': {
-      width: 105,
-      marginRight: 48,
-    },
-    '@media (min-width: 1280px)': {
-      width: 105,
-      marginRight: 75,
-    },
-  },
-});
+// DZ временно закоментила до решения вопроса со стилизацией
+// const useStyles = makeStyles({
+//   input: {
+//     width: '100%',
+//   },
+//   nameInput: {
+//     marginBottom: 30,
+//     marginRight:30,
+//     '@media (min-width: 768px)': {
+//       width: 240,
+//       marginRight: 30,
+//     },
+//   },
+//   weightInput: {
+//     marginBottom: 60,
+//     '@media (min-width: 768px)': {
+//       width: 105,
+//       marginRight: 48,
+//     },
+//     '@media (min-width: 1280px)': {
+//       width: 105,
+//       marginRight: 75,
+//     },
+//   },
+// });
 
 const validationSchema = yup.object({
   productName: yup.string('Enter product').required('Продукт є обов`язковим!'),
@@ -49,7 +51,8 @@ const validationSchema = yup.object({
 });
 
 const DiaryAddProductForm = () => {
-  const classes = useStyles();
+  // DZ временно закоментила до решения вопроса со стилизацией
+  // const classes = useStyles();
   const dispatch = useDispatch();
   const currentDate = useSelector(date);
   const today = new Date(
@@ -125,7 +128,8 @@ const DiaryAddProductForm = () => {
       >
         <TextField variant="standard" 
           styles={{ marginRight: '30px', borderStyle: 'none' }}
-          className={`${classes.input} ${classes.nameInput}`}
+          // DZ временно закоментила до решения вопроса со стилизацией
+          // className={`${classes.input} ${classes.nameInput}`}
           id="productName"
           name="productName"
           value={selectedDataText ? selectedDataText : productName}
@@ -139,7 +143,8 @@ const DiaryAddProductForm = () => {
           // disabled={currentDate !== today}
         />
         <TextField variant="standard"
-          className={`${classes.input} ${classes.weightInput}`}
+          // DZ временно закоментила до решения вопроса со стилизацией
+          // className={`${classes.input} ${classes.weightInput}`}
           id="productWeight"
           name="productWeight"
           value={productWeight}
