@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
+// import { useNavigate } from 'react-router-dom';
+// import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import { Box, TextField } from '@mui/material';
 
@@ -45,8 +45,8 @@ const validateRegister = values => {
   return errors;
 };
 
-const RegistrationForm = ({ onRegistration, isFetching }) => {
-  const navigate = useNavigate();
+export const RegistrationForm = ({ onRegistration, isFetching }) => {
+  // const navigate = useNavigate();
 
   const initialValues = {
     name: '',
@@ -63,38 +63,82 @@ const RegistrationForm = ({ onRegistration, isFetching }) => {
     },
   });
 
-  const { values, handleSubmit, handleChange, handleBlur, touched, errors } =
-    form;
+  // const { values, handleSubmit, handleChange, handleBlur, touched, errors } =
+  //   form;
 
-  const onPasteHandler = e => {
-    e.preventDefault();
-  };
+  // const onPasteHandler = e => {
+  //   e.preventDefault();
+  // };
 
-  const handleLink = () => {
-    navigate('/login');
-  };
+  // const handleLink = () => {
+  //   navigate('/login');
+  // };
 
   return (
     <Box>
-      <form onSubmit={formik.handleSubmit}>
+      <form color="black" onSubmit={formik.handleSubmit}>
         <TextField
+          variant="standard"
+          fullWidth
+          id="name"
+          name="email"
+          label="Name *"
+          value={formik.values.name}
+          onChange={formik.handleChange}
+          error={formik.touched.name && Boolean(formik.errors.name)}
+          helperText={formik.touched.name && formik.errors.name}
+        />
+        <TextField
+          sx={{ color: '#000000' }}
+          InputLabelProps={{
+            style: {
+              fontFamily: 'Verdana',
+              fontStyle: 'normal',
+              fontWeight: '700',
+              fontSize: '14px',
+              lineHeight: '17px',
+              letterSpacing: '0.04em',
+            },
+          }}
+          InputProps={{
+            style: {
+              // fontFamily: 'Verdana',
+              // fontStyle: 'normal',
+              // fontWeight: '700',
+              // fontSize: '14px',
+              // lineHeight: '17px',
+              // letterSpacing: '0.04em',
+              color: '#000000',
+            },
+          }}
+          variant="standard"
+          label="Email *"
           fullWidth
           id="email"
           name="email"
-          label="Email"
+          label="Email *"
           value={formik.values.email}
           onChange={formik.handleChange}
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
+        />
+        <TextField
+          variant="standard"
+          fullWidth
+          id="password"
+          name="password"
+          label="Password *"
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          error={formik.touched.password && Boolean(formik.errors.password)}
+          helperText={formik.touched.password && formik.errors.password}
         />
       </form>
     </Box>
   );
 };
 
-RegistrationForm.propTypes = {
-  onRegistration: PropTypes.func.isRequired,
-  isFetching: PropTypes.bool.isRequired,
-};
-
-export default RegistrationForm;
+// RegistrationForm.propTypes = {
+//   onRegistration: PropTypes.func.isRequired,
+//   isFetching: PropTypes.bool.isRequired,
+// };

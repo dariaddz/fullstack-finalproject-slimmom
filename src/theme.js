@@ -29,4 +29,14 @@ export const theme = createTheme({
       lg: 1280,
     },
   },
+  MuiInput: {
+    MuiButton: {
+      style: {
+        // Name of the slot
+        // Some CSS
+        color: '#000000',
+
+      },
+    },
+  }
 });
