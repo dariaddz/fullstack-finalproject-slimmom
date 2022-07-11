@@ -8,11 +8,14 @@ import DailyCalorieIntake from './components/DailyCalorieIntake';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import { Layout } from './components/Layout';
+
+
 // import PrivateRoute from './components/PrivateRoute';
 // import PublicRoute from './components/PublicRoute';
 
 const HomePage = lazy(() => import('./pages/homePage'));
-// const RegistrationPage = lazy(() => import('./pages/registrationPage'));
+const RegistrationPage = lazy(() => import('./pages/registrationPage'));
 // const LoginPage = lazy(() => import('./pages/loginPage'));
 // const CalculatorPage = lazy(() => import('./pages/calculatorPage'));
 const DiaryPage = lazy(() => import('./pages/DiaryPage'));
@@ -26,58 +29,60 @@ function App() {
     <>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          {/* <Route path="/" element={<PublicRoute />}> */}
-          <Route path="/" element={<HomePage />}>
-            <Route index element={<MainPage />}>
-              <Route
-                index
-                element={
-                  <DailyCaloriesForm
-                    onOpenModal={() => {
-                      setShowModal(true);
-                    }}
-                  />
-                }
-              />
+          <Route path="/" element={<Layout />}>
+            {/* <Route path="/" element={<PublicRoute />}> */}
+            <Route path="/" element={<HomePage />}>
+              <Route index element={<MainPage />}>
+                <Route
+                  index
+                  element={
+                    <DailyCaloriesForm
+                      onOpenModal={() => {
+                        setShowModal(true);
+                      }}
+                    />
+                  }
+                />
 
-              <Route
-                path="/modal"
-                element={
-                  showModal &&
-                  userData && (
-                    <Modal onClose={() => setShowModal(false)}>
-                      {<DailyCalorieIntake />}
-                    </Modal>
-                  )
-                }
-              />
+                <Route
+                  path="/modal"
+                  element={
+                    showModal &&
+                    userData && (
+                      <Modal onClose={() => setShowModal(false)}>
+                        {<DailyCalorieIntake />}
+                      </Modal>
+                    )
+                  }
+                />
 
-              {/* </Route> */}
+                {/* </Route> */}
 
-              {/* <Route
+                {/* <Route
             path="/register"
             element={<PublicRoute restricted redirectTo="/" />}
           > */}
-              {/* <Route path="/register" element={<RegistrationPage />} /> */}
-              {/* </Route> */}
-              {/* <Route
+                <Route path="register" element={<RegistrationPage />} />
+                {/* </Route> */}
+                {/* <Route
             path="/login"
             element={<PublicRoute restricted redirectTo="/" />}
           > */}
-              {/* <Route path="/login" element={<LoginPage />} /> */}
-              {/* </Route> */}
-              {/* <Route
+                {/* <Route path="/login" element={<LoginPage />} /> */}
+                {/* </Route> */}
+                {/* <Route
             path="/calculator"
             element={<PrivateRoute redirectTo="/login" />}
           > */}
-              <Route path="/diary" element={<DiaryPage />} />
-              {/* </Route> */}
-              {/* <Route
+                <Route path="/diary" element={<DiaryPage />} />
+                {/* </Route> */}
+                {/* <Route
             path="*"
             element={<PublicRoute restricted redirectTo="/diary" />}
           >
             <Route path="*" element={<NotFoundPage />} />
           </Route> */}
+              </Route>
             </Route>
           </Route>
         </Routes>
