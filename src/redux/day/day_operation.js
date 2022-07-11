@@ -6,9 +6,7 @@ import {
   addProductSuccess,
   addProductError,
 } from './day_action';
-
 axios.defaults.baseURL = '';
-
 
 export const addProduct = (date, productId, weight) => async dispatch => {
   const product = { date, productId, weight };
