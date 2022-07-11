@@ -9,7 +9,7 @@ const HomePage = lazy(() => import('./pages/homePage'));
 // const RegistrationPage = lazy(() => import('./pages/registrationPage'));
 // const LoginPage = lazy(() => import('./pages/loginPage'));
 // const CalculatorPage = lazy(() => import('./pages/calculatorPage'));
-// const DiaryPage = lazy(() => import('./pages/diaryPage'));
+const DiaryPage = lazy(() => import('./pages/DiaryPage'));
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
             path="/calculator"
             element={<PrivateRoute redirectTo="/login" />}
           > */}
-          {/* <Route path="/diary" element={<DiaryPage />} /> */}
+          <Route path="/diary" element={<DiaryPage />} />
           {/* </Route> */}
           {/* <Route
             path="*"

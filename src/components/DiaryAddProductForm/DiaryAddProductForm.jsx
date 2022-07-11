@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import styles from './DiaryAddProductForm.module.css';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@mui/styles';
+import TextField from '@mui/material/TextField';
 import Button from '../Button';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import AddIcon from '@material-ui/icons/Add';
+import AddIcon from '@mui/icons-material/Add';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '../../redux/day/day_operation';
 import { date } from '../../redux/day/day_selector';
@@ -17,6 +17,7 @@ const useStyles = makeStyles({
   },
   nameInput: {
     marginBottom: 30,
+    marginRight:30,
     '@media (min-width: 768px)': {
       width: 240,
       marginRight: 30,
@@ -36,7 +37,7 @@ const useStyles = makeStyles({
 });
 
 const validationSchema = yup.object({
-  productName: yup.string('Enter product').required('Продукт є обовґязковим!'),
+  productName: yup.string('Enter product').required('Продукт є обов`язковим!'),
   productWeight: yup
     .number('Введіть число')
     .typeError('Введіть число')
@@ -55,7 +56,7 @@ const DiaryAddProductForm = () => {
     new Date().getTime() - new Date().getTimezoneOffset() * 60000,
   )
     .toISOString()
-    .split('T')[0]; // Текущий день с учётом временных зон, мать их
+    .split('T')[0]; 
 
   const formik = useFormik({
     initialValues: {
@@ -122,8 +123,8 @@ const DiaryAddProductForm = () => {
         onSubmit={formik.handleSubmit}
         autoсomplete="off"
       >
-        <TextField
-          styles={{ color: 'blue' }}
+        <TextField variant="standard" 
+          styles={{ marginRight: '30px', borderStyle: 'none' }}
           className={`${classes.input} ${classes.nameInput}`}
           id="productName"
           name="productName"
@@ -137,7 +138,7 @@ const DiaryAddProductForm = () => {
           helperText={formik.touched.productName && formik.errors.productName}
           // disabled={currentDate !== today}
         />
-        <TextField
+        <TextField variant="standard"
           className={`${classes.input} ${classes.weightInput}`}
           id="productWeight"
           name="productWeight"
