@@ -16,11 +16,13 @@ ReactDOM.createRoot(document.querySelector('#root')).render(
   <Provider store={store}>
     {/* <PersistGate loading={null} persistor={persistor}> */}
     <React.StrictMode>
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ThemeProvider>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </ThemeProvider>
+      </BrowserRouter>
     </React.StrictMode>
     {/* </PersistGate> */}
   </Provider>
