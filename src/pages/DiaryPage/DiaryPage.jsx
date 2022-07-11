@@ -8,8 +8,8 @@ import DiaryAddProductForm from '../../components/DiaryAddProductForm';
 // import RightSideBar from '../../components/RightSideBar';
 // import DiaryProductsList from '../../components/DiaryProductsList';
 import Button from '../../components/Button';
-import AddIcon from '@material-ui/icons/Add';
-import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import AddIcon from '@mui/icons-material/Add';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 // import Loader from '../../components/Loader';
 
 import {
