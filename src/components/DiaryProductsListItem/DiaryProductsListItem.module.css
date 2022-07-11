@@ -1,0 +1,85 @@
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-family: Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #212121;
+  font-weight: normal;
+}
+
+.name {
+  width: 45%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.weight {
+  width: 20%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: right;
+}
+
+.calories {
+  width: 20%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: right;
+}
+
+.icon {
+  color: #9b9faa;
+  cursor: pointer;
+  transition: all 250ms linear;
+}
+
+.icon:hover {
+  color: #264061;
+  transform: scale(1.1);
+  transition: all 250ms linear;
+}
+
+/* .disabled {
+  color: rgba(155, 159, 170, 0.2);
+  cursor: auto;
+} */
+
+.icon.disabled:hover {
+  color: rgba(155, 159, 170, 0.2);
+}
+
+@media (max-width: 767px) {
+  .calories span {
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  .calories {
+    width: 23%;
+  }
+
+  .weight {
+    width: 22%;
+  }
+
+  .name,
+  .calories,
+  .weight {
+    padding-bottom: 5px;
+  }
+
+  .item {
+    margin-bottom: 20px;
+  }
+  .icon {
+    width: 21px;
+    height: 21px;
+  }
+}
