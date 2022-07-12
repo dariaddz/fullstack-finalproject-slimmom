@@ -1,4 +1,4 @@
-import { authOperations } from '../../redux/login';
+import { loginOperations } from '../../redux/login';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
@@ -11,8 +11,7 @@ export const LoginPage = () => {
   let navigate = useNavigate();
 
   const onLogin = ({ email, password }) => {
-    toast('Hey 👋, see how easy!');
-    // dispatch(authOperations.logIn({ email, password }));
+    dispatch(loginOperations.logIn({ email, password }));
   };
 
   return (

@@ -5,7 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from '@mui/material';
 import { theme } from './theme';
-import { store, persistor } from './redux/store';
+import { Provider } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
+import './fonts/fonts.css';
+import store from './redux/store';
+import { persistor } from './redux/store';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 // import { PersistGate } from 'redux-persist/integration/react';
@@ -18,7 +22,13 @@ ReactDOM.createRoot(document.querySelector('#root')).render(
     <React.StrictMode>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
-          <App />
+          <Provider store={store}>
+            <App />
+            <Toaster
+              position="top-right"
+              toastOptions={{ duration: 3000 }}
+            />
+          </Provider>
         </ThemeProvider>
       </BrowserRouter>
     </React.StrictMode>
