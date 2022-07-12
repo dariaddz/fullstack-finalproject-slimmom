@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 
+import styles from '../RegistrationForm/registration.module.css'
 
 const validateRegister = (values) => {
 const errors = {};
@@ -71,11 +72,50 @@ e.preventDefault();
 const handleLink = () => {
 navigate('/login');
 };
+
+
 RegistrationForm.propTypes = {
-onRegistration: PropTypes.func.isRequired,
-isFetching: PropTypes.bool.isRequired,
+  onRegistration: PropTypes.func.isRequired,
+  isFetching: PropTypes.bool.isRequired,
 };
 
+return (
+    <div>
+          <h1 className={styles.title}>Реєстрація</h1>
+
+<form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
+  <label style={styles.label}>
+    <input type="text"
+     name="name" 
+     //value={name}
+     placeholder="Ім'я*"
+     onChange={handleChange} />
+  </label>
+
+  <label style={styles.label}>
+    <input
+      type="email"
+      name="email"
+     // valuе={email}
+      placeholder="Електронна адреса*"
+      onChange={handleChange}
+    />
+  </label>
+
+  <label style={styles.label}>
+  
+    <input
+      type="password"
+      name="password"
+      //value={password}
+      placeholder="Пароль*"
+      onChange={handleChange}
+    />
+  </label>
+</form>
+</div>
+);
+}
 
 export default RegistrationForm;
          
