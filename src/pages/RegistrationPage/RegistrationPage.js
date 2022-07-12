@@ -8,7 +8,7 @@ import RegistrationForm from '../../components/RegistrationForm';
 
 import { getLoading } from '../../redux/auth/auth-selector';
 
-import styles from '../../components/RegistrationForm/RegistrationForm.module.css';
+import styles from '../../components/RegistrationForm/registrationForm.module.css';
 
 const RegistrationPage = () => {
   const isLoading = useSelector(getLoading); // Селектор статуса загрузки
@@ -20,7 +20,6 @@ const RegistrationPage = () => {
   return (
     <>
       <div className={styles.registrationPage}>
-       
         <RegistrationForm className={styles.registrationPage__form} />
       </div>
     </>

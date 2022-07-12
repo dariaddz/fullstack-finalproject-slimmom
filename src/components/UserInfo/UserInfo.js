@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Button, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useSelector } from 'react-redux';
-import { authSelectors } from '../../redux/auth';
+// import { authSelectors } from '../../redux/auth';
 
 const typografyStyle = {
   fontFamily: 'Gotham Pro',

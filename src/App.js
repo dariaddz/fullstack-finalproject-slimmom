@@ -11,7 +11,7 @@ import { Layout } from './components/Layout';
 // import PublicRoute from './components/PublicRoute';
 
 //const HomePage = lazy(() => import('./pages/homePage'));
-const RegistrationPage = lazy(() => import('./pages/RegistrationPage'));
+const RegistrationPage = lazy(() => import('./pages/registrationPage'));
 const LoginPage = lazy(() => import('./pages/loginPage'));
 // const CalculatorPage = lazy(() => import('./pages/calculatorPage'));
 const DiaryPage = lazy(() => import('./pages/diaryPage/diaryPage'));

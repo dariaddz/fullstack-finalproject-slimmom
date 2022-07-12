@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { useWindowWidth } from '@react-hook/window-size';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';

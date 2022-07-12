@@ -1,4 +1,4 @@
-import styles from './RegistrationForm.module.css';
+import styles from './registrationForm.module.css';
 import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';

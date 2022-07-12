@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { userSlice } from './userSlice';
 // import {
 //   persistStore,
 //   persistReducer,
@@ -22,6 +23,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 export const store = configureStore({
   reducer: {
+    userData: userSlice.reducer,
     // auth: persistReducer(authPersistConfig, authReducer),
     // додати редьюсери кому які треба для роботи
   },
@@ -34,4 +36,5 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV === 'development',
 });
 
+export default store;
 // export const persistor = persistStore(store);

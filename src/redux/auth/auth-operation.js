@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 // import { PersistGate } from 'redux-persist/integration/react';
 
 import { registerRequest, registerSuccess, registerError } from './auth-action';
@@ -23,6 +23,6 @@ export const register = payload => async dispatch => {
     dispatch(registerSuccess(response.data));
   } catch (err) {
     dispatch(registerError(err.message));
-    toast.error(err.message);
+    // toast.error(err.message);
   }
 };

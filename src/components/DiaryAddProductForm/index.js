@@ -1,1 +1,1 @@
-export { default } from './diaryAddProductForm';
+export { default } from './diaryAddProductForm.js';
