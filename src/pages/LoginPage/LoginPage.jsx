@@ -1,9 +1,18 @@
+import { authOperations } from '../../redux/login';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+
 import { Box } from '@mui/material';
 import { LoginForm } from '../../components/LoginForm';
 
 export const LoginPage = () => {
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
+
   const onLogin = ({ email, password }) => {
-    console.log(email, password);
+    toast('Hey 👋, see how easy!');
+    // dispatch(authOperations.logIn({ email, password }));
   };
 
   return (
