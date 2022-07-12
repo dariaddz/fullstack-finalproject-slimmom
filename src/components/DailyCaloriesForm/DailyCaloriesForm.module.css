@@ -1,4 +1,6 @@
+.container {
 
+}
 label {
   cursor: pointer;
   margin-right: 25px;
@@ -15,8 +17,8 @@ label:checked::after {
 input[type='radio'] {
     cursor: pointer;
   position: relative;
-  height: 22px;
-  width: 22px;
+  height: 15px;
+  width: 15px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -52,13 +54,36 @@ input[type='radio']:checked::after {
   visibility: visible;
 }
 .radioButton{
-  margin-left: 5px;
-font-size: 26px;
+  margin-left: 10px;
+font-size: 20px;
 line-height: 17px;
 letter-spacing: 0.04em;
+font-weight: 400;
 
 }
 .titleRadio{
   margin-bottom: 20px;
   
+}
+.radioGroup{
+  margin-bottom: 60px;
+}
+
+@media screen and (max-width: 767px){
+  
+  .button{
+    text-align: center;
+  }
+  .radioButton{
+    margin-left: 5px;}
+}
+
+
+@media screen and (min-width: 1280px){
+  .button{
+    margin-right: 330px;
+    
+  }
+  
+
 }

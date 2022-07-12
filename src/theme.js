@@ -36,7 +36,6 @@ export const theme = createTheme({
 
 const OrangeButton = styled(Button)(({theme})=>({
   padding: '13px 25px',
-  margin:"40px ",
   alignItems:"center",
   borderRadius: '30px',
   height: '43px',
