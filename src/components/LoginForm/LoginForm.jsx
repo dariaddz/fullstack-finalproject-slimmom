@@ -5,14 +5,14 @@ import { Box, TextField, Typography, Button } from '@mui/material';
 const validateRegister = values => {
   const errors = {};
   if (!values.email) {
-    errors.email = 'Required';
+    errors.email = "Обов'зкове поле";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address';
+    errors.email = 'Не вірний формат адреси ';
   }
   if (!values.password) {
-    errors.password = 'Required';
+    errors.password = "Обов'зкове поле";
   } else if (values.password.length < 6) {
-    errors.password = 'Invalid password';
+    errors.password = 'Не вірний формат паролю';
   }
   return errors;
 };
@@ -72,7 +72,7 @@ export const LoginForm = ({ onLogin }) => {
               color: '#FC842D',
             }}
           >
-            SIGN IN
+            ВХІД
           </Typography>
         </Box>
         <Box
@@ -93,7 +93,7 @@ export const LoginForm = ({ onLogin }) => {
               variant="standard"
               id="email"
               name="email"
-              label="Email *"
+              label="Електронна пошта *"
               value={formik.values.email}
               onChange={formik.handleChange}
               error={formik.touched.email && Boolean(formik.errors.email)}
@@ -110,7 +110,7 @@ export const LoginForm = ({ onLogin }) => {
               variant="standard"
               id="password"
               name="password"
-              label="Password *"
+              label="Пароль *"
               value={formik.values.password}
               onChange={formik.handleChange}
               error={formik.touched.password && Boolean(formik.errors.password)}
@@ -131,7 +131,7 @@ export const LoginForm = ({ onLogin }) => {
             type="submit"
           >
             <Typography sx={{ ...labelFontStyle, color: '#FFFFFF' }}>
-              Login
+              Вхід
             </Typography>
           </Button>
           <Button
@@ -148,7 +148,7 @@ export const LoginForm = ({ onLogin }) => {
             }}
           >
             <Typography sx={{ ...labelFontStyle, color: '#FC842D' }}>
-              Register
+              Реєстрація
             </Typography>
           </Button>
         </Box>
