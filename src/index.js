@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from '@mui/material';
 import { theme } from './theme';
 import { Provider } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
 import './fonts/fonts.css';
 import store from './redux/store';
 import { persistor } from './redux/store';
@@ -21,6 +22,10 @@ ReactDOM.createRoot(document.querySelector('#root')).render(
         <ThemeProvider theme={theme}>
           <Provider store={store}>
             <App />
+            <Toaster
+              position="top-right"
+              toastOptions={{ duration: 3000 }}
+            />
           </Provider>
         </ThemeProvider>
       </BrowserRouter>
