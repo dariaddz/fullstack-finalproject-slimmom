@@ -1,1 +1,1 @@
-export { default } from './DateForm';
+export { default } from './dateForm';

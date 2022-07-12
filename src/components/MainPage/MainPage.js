@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import s from './MainPage.module.css'
+import s from './mainPage.module.css'
 
 
 function MainPage(){

@@ -1,3 +1,3 @@
-import DailyCaloriesForm from "./DailyCaloriesForm";
+import DailyCaloriesForm from './dailyCaloriesForm';
 
-export default DailyCaloriesForm
+export default DailyCaloriesForm;

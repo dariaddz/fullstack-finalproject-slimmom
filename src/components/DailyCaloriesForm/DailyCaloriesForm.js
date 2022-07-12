@@ -10,7 +10,7 @@ import OrangeButton from '../../theme';
 import Modal from '../Modal';
 
 import DailyCalorieIntake from '../DailyCalorieIntake';
-import s from './DailyCaloriesForm.module.css';
+import s from './dailyCaloriesForm.module.css';
 
 const MainContainer = styled(Container)(({ theme }) => ({
   padding: '32px 20px',
