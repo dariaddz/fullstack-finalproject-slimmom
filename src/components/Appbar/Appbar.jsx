@@ -1,14 +1,16 @@
-// import { useSelector } from 'react-redux';
-// import { authSelectors } from 'redux/auth';
+import { useSelector } from 'react-redux';
+import { authSelectors } from '../../redux/auth';
 
 import { Box } from '@mui/material';
 import { Logo } from '../Logo';
 import { AuthNav } from '../AuthNav';
-// import { Navigation } from 'components/Navigation/Navigation';
-// import { UserMenu } from 'components/UserMenu/UserMenu';
+import Navigation from '../Navigation';
+import UserInfo from '../UserInfo';
 
 export const Appbar = () => {
   // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const isLoggedIn = true
+
   return (
     <>
       <Box
@@ -29,13 +31,21 @@ export const Appbar = () => {
             md: 'calc(100vw-64px)',
             lg: 'calc(100vw-32px)',
           },
+          backgroundColor: "transparent",
+         
         }}
         disableGutters={true}
         fixed={true}
       >
         <Logo />
-        {/* <UserMenu /> */}
-        <AuthNav />
+        
+  
+        {isLoggedIn && (
+          <Navigation />)}
+        
+        {isLoggedIn ? (
+          <UserInfo />) :
+          <AuthNav />}
       </Box>
       <Box
         sx={{
