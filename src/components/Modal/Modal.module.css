@@ -8,8 +8,8 @@
     padding: 40px 20px;
 }
     @media screen and (min-width: 768px){
-      .modal{  width: 508px;
-        padding: 64px 82px;}
+      .modal{  width: 672px;
+        height: 572px;}
     }
 
   
