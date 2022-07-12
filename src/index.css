@@ -42,8 +42,8 @@ a {
   text-decoration: none;
 }
 
-fieldset{
-    border-style: none;
+fieldset {
+  border-style: none;
 }
 
 *::-webkit-scrollbar {
@@ -60,4 +60,8 @@ fieldset{
 
 *::-webkit-scrollbar-track {
   background-color: #f0f1f3;
+}
+
+body {
+  margin: 0;
 }
