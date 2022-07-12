@@ -1,68 +1,53 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
+import productActions from './product-actions';
 
-import {
-  dayInfoRequest,
-  dayInfoSuccess,
-  dayInfoError,
-  addProductRequest,
-  addProductSuccess,
-  addProductError,
-  deleteProductRequest,
-  deleteProductSuccess,
-  deleteProductError,
-  reset,
-} from './day_action';
+const diaryInfoState = {
+  email: '',
+  date: '',
+  products: [],
+  dayNorm: 0,
+  totalKcalPerDay: 0,
+  kcalRemain: 0,
+  percentage: null,
+  productsNotRecommended: [],
+};
 
-const initial = { daySummary: {}, _id: '', eatenProducts: [], date: '' };
-
-const dayInfo = createReducer(initial, {
-  [dayInfoSuccess]: (_, { payload }) => payload,
-  [addProductSuccess]: (state, { payload }) => ({
-    ...state,
-    eatenProducts: payload.eatenProducts,
-    daySummary: payload.daySummary,
-  }),
-  [deleteProductSuccess]: (state, { payload }) => ({
-    ...state,
-    eatenProducts: payload.eatenProducts,
-    daySummary: payload.updatedDayData,
-  }),
-  [reset]: (_, { payload }) => initial,
+const diaryInfo = createReducer(diaryInfoState, {
+  [productActions.addProductSuccess]: (state, { payload }) => {
+    return {
+      ...state,
+      products: [payload, ...state.products],
+    };
+  },
+  [productActions.dateEatenProductsSuccess]: (_, { payload }) => payload,
+  // [productActions.deleteProductIdSuccess]: (state, { payload }) => {
+  //   const oldArray = state.products;
+  //   const newArray = oldArray.filter(product => product.id !== payload);
+  //   const newState = {
+  //     ...state,
+  //     products: newArray,
+  //   };
+  //   return newState;
+  // },
 });
+
+// const loading = createReducer(false, {
+//   [productActions.addProductRequest]: (state, action) => true,
+//   [productActions.addProductSuccess]: (state, action) => false,
+//   [productActions.addProductError]: (state, action) => false,
+// });
 
 const error = createReducer(null, {
-  [dayInfoError]: (_, { payload }) => payload,
-  [addProductError]: (_, { payload }) => payload,
-  [deleteProductError]: (_, { payload }) => payload,
-
-  [dayInfoRequest]: () => null,
-  [dayInfoSuccess]: () => null,
-
-  [addProductRequest]: () => null,
-  [addProductSuccess]: () => null,
-
-  [deleteProductRequest]: () => null,
-  [deleteProductSuccess]: () => null,
-});
-
-// Cостояние спиннера при запросах
-const isLoading = createReducer(false, {
-  [dayInfoRequest]: () => true,
-  [dayInfoSuccess]: () => false,
-  [dayInfoError]: () => false,
-
-  [addProductRequest]: () => true,
-  [addProductSuccess]: () => false,
-  [addProductError]: () => false,
-
-  [deleteProductRequest]: () => true,
-  [deleteProductSuccess]: () => false,
-  [deleteProductError]: () => false,
+  // [productActions.deleteProductIdError]: (_, { payload }) => payload,
+  [productActions.addProductRequest]: () => null,
+  // [onLogoutRequest]: () => null,
+  [productActions.dateEatenProductsRequest]: () => null,
 });
 
 export default combineReducers({
-  dayInfo,
+  diaryInfo,
+  // loading,
   error,
-  isLoading,
+  // dayInfo,
 });

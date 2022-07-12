@@ -1,3 +1,3 @@
-import { AuthNav } from './AuthNav';
+import { AuthNav } from './authNav';
 
 export { AuthNav };

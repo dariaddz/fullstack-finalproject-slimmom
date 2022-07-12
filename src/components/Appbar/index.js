@@ -1,3 +1,1 @@
-import { Appbar } from './Appbar';
-
-export { Appbar };
+export { default } from './appbar.js';

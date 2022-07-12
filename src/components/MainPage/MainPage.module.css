@@ -1,3 +1,19 @@
+@media screen and (max-width: 767px) {
+  .container {width: 320px;
+    min-height: 100vh;
+margin: 0 auto;
+background-image: url('../../images/mainPage/StrawberryLaptop.png');
+background-position:right bottom ;
+    background-repeat: no-repeat;
+}
+.blur {
+  background: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(2px); 
+  height: 100vh;
+	width: 100%;
+}
+}
+
 @media screen and (min-width: 768px) {
   .container {
     min-height: 100vh;
@@ -5,13 +21,13 @@
       url('../../images/mainPage/GreenLaptop.png'),
       url('../../images/mainPage/BananaLaptop.png'),
       url('../../images/mainPage/DecoreLaptop.png');
-    background-position: top 400px right -20px, right bottom, right bottom,
+    background-position: top 234px right -20px, right bottom, right bottom,
       right bottom;
     background-repeat: no-repeat;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .container {
     background-image: url('../../images/mainPage/StrawberryDesc.png'),
       url('../../images/mainPage/GreenDesc.png'),

@@ -11,6 +11,7 @@ body {
   font-size: 14px;
   line-height: 1.215;
   letter-spacing: 0.04em;
+  margin: 0;
 }
 
 p,
@@ -41,8 +42,8 @@ a {
   text-decoration: none;
 }
 
-fieldset{
-    border-style: none;
+fieldset {
+  border-style: none;
 }
 
 *::-webkit-scrollbar {
@@ -59,4 +60,8 @@ fieldset{
 
 *::-webkit-scrollbar-track {
   background-color: #f0f1f3;
+}
+
+body {
+  margin: 0;
 }

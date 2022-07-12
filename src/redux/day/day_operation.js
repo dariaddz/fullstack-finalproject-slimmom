@@ -1,61 +1,44 @@
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import productActions from './day_action';
 
-import {
-  dayInfoRequest,
-  dayInfoSuccess,
-  dayInfoError,
-  addProductRequest,
-  addProductSuccess,
-  addProductError,
-  deleteProductRequest,
-  deleteProductSuccess,
-  deleteProductError,
-  reset,
-} from './day_action';
-axios.defaults.baseURL = '';
+const axiosInstance = axios.create({
+  baseURL: 'https://slim-mom-project.herokuapp.com',
+});
 
-// Операция получения информации по определённому дню
-export const getDay = (id, date) => async dispatch => {
-  const info = { id, date };
-  dispatch(dayInfoRequest());
-
-  try {
-    const response = await axios.post('/day/info', info);
-    dispatch(dayInfoSuccess(response.data));
-  } catch (error) {
-    dispatch(dayInfoError(error.message));
-  }
+export const getProducts = query => {
+  return axiosInstance
+    .get(`api/products/search?product=${query}`)
+    .then(({ data }) => {
+      return data;
+    })
+    .catch(error => error);
 };
 
-export const addProduct = (date, productId, weight) => async dispatch => {
-  const product = { date, productId, weight };
-  dispatch(addProductRequest());
+export const addProduct =
+  ({ title, weight, kcal }) =>
+  dispatch => {
+    const newProduct = {
+      kcal,
+      title,
+      weight,
+    };
+    dispatch(productActions.addProductRequest());
 
-  try {
-    const { data } = await axios.post('/day', product);
-    dispatch(addProductSuccess(data));
-    toast.success('😋 Продукт успешно добавлен');
-  } catch (error) {
-    dispatch(addProductError(error.message));
-    toast.error(error.message);
-  }
-};
+    axiosInstance
+      .post('/products', newProduct)
+      .then(({ data }) => {
+        dispatch(productActions.addProductSuccess(data));
+      })
+      .catch(error => dispatch(productActions.addProductError(error)));
+  };
 
-export const deleteProduct = (dayId, eatenProductId) => async dispatch => {
-  dispatch(deleteProductRequest());
-  try {
-    const { data } = await axios.delete('/day', {
-      data: { dayId: dayId, eatenProductId: eatenProductId },
-    });
-    dispatch(deleteProductSuccess(data));
-    toast.info('👌 Продукт успешно удален');
-  } catch (error) {
-    dispatch(deleteProductError(error.message));
-    toast.error(error.message);
-  }
-};
+// export const dateEatenProduct = date => dispatch => {
+//   dispatch(productActions.dateEatenProductsRequest());
 
-export const resetDayInfo = () => dispatch => {
-  dispatch(reset());
-};
+//   axiosInstance
+//     .get(`/products/${date}`)
+//     .then(responce => {
+//       dispatch(productActions.dateEatenProductsSuccess(responce.data));
+//     })
+//     .catch(error => dispatch(productActions.dateEatenProductsError(error)));
+// };
