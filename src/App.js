@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+// import logo from "./logo.svg";
 import './App.css';
 import DailyCaloriesForm from './components/DailyCaloriesForm';
 import MainPage from './components/MainPage/mainPage';
@@ -9,11 +10,10 @@ import { Layout } from './components/Layout';
 // import PrivateRoute from './components/PrivateRoute';
 // import PublicRoute from './components/PublicRoute';
 
-// const HomePage = lazy(() => import('./pages/homePage'));
-// const RegistrationPage = lazy(() => import('./pages/RegistrationPage'));
+//const HomePage = lazy(() => import('./pages/homePage'));
+const RegistrationPage = lazy(() => import('./pages/RegistrationPage'));
 const LoginPage = lazy(() => import('./pages/loginPage'));
 // const CalculatorPage = lazy(() => import('./pages/calculatorPage'));
-
 const DiaryPage = lazy(() => import('./pages/diaryPage/diaryPage'));
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
             path="/register"
             element={<PublicRoute restricted redirectTo="/" />}
           > */}
-              {/* <Route path="register" element={<RegistrationPage />} /> */}
+              <Route path="register" element={<RegistrationPage />} />
               {/* </Route> */}
               {/* <Route
             path="/login"
@@ -48,6 +48,7 @@ function App() {
               <Route path="/diary" element={<DiaryPage />} />
               {/* </Route> */}
               {/* <Route
+
             path="*"
             element={<PublicRoute restricted redirectTo="/diary" />}
           >

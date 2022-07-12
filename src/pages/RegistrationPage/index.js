@@ -1,3 +1,1 @@
-import { RegistrationPage } from './RegistrationPage';
-
-export default RegistrationPage;
+export { default } from './RegistrationPage';
