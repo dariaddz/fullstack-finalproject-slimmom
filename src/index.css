@@ -60,3 +60,7 @@ fieldset{
 *::-webkit-scrollbar-track {
   background-color: #f0f1f3;
 }
+
+body {
+  margin:0;
+}

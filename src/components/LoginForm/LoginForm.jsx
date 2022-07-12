@@ -1,53 +1,24 @@
-// import { useNavigate } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
-import Button from '../Button';
-import { Box, TextField } from '@mui/material';
+import { Box, TextField, Typography, Button } from '@mui/material';
 
 const validateRegister = values => {
   const errors = {};
-  if (!values.name) {
-    errors.name = 'Required';
-  } else if (values.name.length > 100) {
-    errors.name = 'Must be 100 characters or less';
-  } else if (values.name.length < 3) {
-    errors.name = 'Must be 3 characters or more';
-  } else if (
-    !/^[a-zA-Zа-яА-Я0-9]+(([' -][a-zA-Zа-яА-Я0-9 ])?[a-zA-Zа-яА-Я0-9]*)*$/i.test(
-      values.name
-    )
-  ) {
-    errors.name = 'Field contain errors';
-  }
   if (!values.email) {
     errors.email = 'Required';
-  } else if (
-    !/^([a-z0-9._%+-]{2,})+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(values.email)
-  ) {
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
     errors.email = 'Invalid email address';
-  } else if (values.email.startsWith('-') || values.email.slice(-1) === '-') {
-    errors.email = 'The field cannot start with a hyphen or end with a hyphen';
-  } else if (values.email.length < 3 || values.email.length > 254) {
-    errors.email =
-      'The field can be entered from 3 to 254 characters inclusive';
   }
   if (!values.password) {
-    errors.password = 'Enter your password';
-  } else if (values.password.length > 100) {
-    errors.password = 'Must be 30 characters or less';
-  } else if (values.password.length < 6) {
-    errors.password = 'Must be 6 characters or more';
-  } else if (
-    values.password.startsWith('-') ||
-    values.password.startsWith('.')
-  ) {
-    errors.password = 'Поле може містити літери латиниці, цифри та знаки';
+    errors.password = 'Required';
+  } else if (values.password.length < 7) {
+    errors.password = 'Invalid password';
   }
   return errors;
 };
 
-export const LoginForm = ({ onRegistration, isFetching }) => {
-  // const navigate = useNavigate();
+export const LoginForm = ({ onLogin, isFetching }) => {
+  const navigate = useNavigate();
 
   const initialValues = {
     name: '',
@@ -59,21 +30,11 @@ export const LoginForm = ({ onRegistration, isFetching }) => {
     initialValues,
     validate: validateRegister,
     enableReinitialize: true,
-    onSubmit: ({ name, email, password }) => {
-      onRegistration({ name, email, password });
+    onSubmit: ({ email, password }) => {
+      onLogin({ email, password });
     },
   });
 
-  // const { values, handleSubmit, handleChange, handleBlur, touched, errors } =
-  //   form;
-
-  // const onPasteHandler = e => {
-  //   e.preventDefault();
-  // };
-
-  // const handleLink = () => {
-  //   navigate('/login');
-  // };
   const labelFontStyle = {
     fontFamily: 'Verdana',
     fontStyle: 'normal',
@@ -83,15 +44,37 @@ export const LoginForm = ({ onRegistration, isFetching }) => {
     letterSpacing: '0.04em',
   };
 
+  const buttonLR = {
+    height: '44px',
+    width: '182px',
+    borderRadius: '30px',
+  };
+
   return (
     <form color="black" onSubmit={formik.handleSubmit}>
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          // alignItems: { xs: 'center', md: 'left' },
+          margin: { xs: ' 0 auto' },
+          alignItems: { xs: 'center', md: 'flex-start' },
         }}
       >
+        <Box sx={{ marginBottom: '40px' }}>
+          <Typography
+            sx={{
+              fontFamily: 'Gotham Pro',
+              fontStyle: 'normal',
+              fontWeight: '700',
+              fontSize: '14px',
+              lineHeight: '13px',
+              letterSpacing: '0.04em',
+              color: '#FC842D',
+            }}
+          >
+            SIGN IN
+          </Typography>
+        </Box>
         <Box
           sx={{
             display: 'flex',
@@ -100,60 +83,75 @@ export const LoginForm = ({ onRegistration, isFetching }) => {
             alignItems: 'center',
           }}
         >
-          <TextField
-            InputLabelProps={{ style: { ...labelFontStyle } }}
-            inputProps={{ style: { color: '#111111' } }}
-            sx={{ width: { xs: '280px', md: '240px' } }}
-            variant="standard"
-            id="name"
-            name="name"
-            label="Name *"
-            value={formik.values.name}
-            onChange={formik.handleChange}
-            error={formik.touched.name && Boolean(formik.errors.name)}
-            helperText={formik.touched.name && formik.errors.name}
-          />
-          <TextField
-            InputLabelProps={{ style: { ...labelFontStyle } }}
-            inputProps={{ style: { color: '#111111' } }}
-            sx={{ width: { xs: '280px', md: '240px' } }}
-            variant="standard"
-            id="email"
-            name="email"
-            label="Email *"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
-          />
-          <TextField
-            InputLabelProps={{ style: { ...labelFontStyle } }}
-            inputProps={{
-              style: { color: '#111111' },
-            }}
-            sx={{ width: { xs: '280px', md: '240px' } }}
-            variant="standard"
-            id="password"
-            name="password"
-            label="Password *"
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            error={formik.touched.password && Boolean(formik.errors.password)}
-            helperText={formik.touched.password && formik.errors.password}
-          />
+          <Box sx={{ height: '55px', marginBottom: '23px' }}>
+            <TextField
+              InputLabelProps={{ style: { ...labelFontStyle } }}
+              inputProps={{
+                style: { color: '#111111', paddingBottom: '15px' },
+              }}
+              sx={{ width: { xs: '280px', md: '240px' } }}
+              variant="standard"
+              id="email"
+              name="email"
+              label="Email *"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+            />
+          </Box>
+          <Box sx={{ height: '55px', marginBottom: '60px' }}>
+            <TextField
+              InputLabelProps={{ style: { ...labelFontStyle } }}
+              inputProps={{
+                style: { color: '#111111', paddingBottom: '15px' },
+              }}
+              sx={{ width: { xs: '280px', md: '240px' } }}
+              variant="standard"
+              id="password"
+              name="password"
+              label="Password *"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              error={formik.touched.password && Boolean(formik.errors.password)}
+              helperText={formik.touched.password && formik.errors.password}
+            />
+          </Box>
         </Box>
-
         <Box
           sx={{
             display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            alignItems: { xs: 'center', md: 'center' },
-            justifyContent: { xs: 'center', md: 'center' },
-            width: '184px',
+            flexDirection: { xs: 'column', sm: 'column', md: 'row' },
           }}
         >
-          <Button text="Login" customType="primary"></Button>
-          <Button text="Register"></Button>
+          <Button
+            variant="contained"
+            sx={{ ...buttonLR, margin: { xs: '0 0 20px 0', md: '0 32px 0 0' } }}
+            color="buttonLogin"
+            type="submit"
+            // onClick={onSabmitForm}
+          >
+            <Typography sx={{ ...labelFontStyle, color: '#FFFFFF' }}>
+              Login
+            </Typography>
+          </Button>
+          <Button
+            variant="contained"
+            sx={{
+              ...buttonLR,
+              backgroundColor: '#FFFFFF',
+              border: '2px solid #FC842D',
+            }}
+            color="buttonRegister"
+            type="button"
+            onClick={() => {
+              navigate('/register');
+            }}
+          >
+            <Typography sx={{ ...labelFontStyle, color: '#FC842D' }}>
+              Register
+            </Typography>
+          </Button>
         </Box>
       </Box>
     </form>
