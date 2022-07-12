@@ -1,3 +1,1 @@
-import { Appbar } from './Appbar';
-
-export { Appbar };
+export { Appbar } from './Appbar';
