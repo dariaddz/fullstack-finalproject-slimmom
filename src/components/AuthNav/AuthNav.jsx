@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { NavLink } from 'react-router-dom';
 import { Button, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 
@@ -10,6 +10,7 @@ const typografyStyle = {
   fontSize: '14px',
   lineHeight: '13px',
   letterSpacing: '0.04em',
+  textTransform: 'uppercase'
 };
 
 export const AuthNav = () => {
@@ -23,22 +24,22 @@ export const AuthNav = () => {
   };
   return (
     <Box>
-      <Button sx={{ padding: '0' }}>
+      <Button component={NavLink} to="/login"sx={{ padding: '0' }}>
         <Typography
-          sx={{ ...typografyStyle }}
+          sx={{ ...typografyStyle}}
           color={active === 'signIn' ? '#212121' : '#9B9FAA'}
           onClick={onClickSignIn}
         >
-          SIGN IN
+         Вхід
         </Typography>
       </Button>
-      <Button sx={{ padding: '0', marginLeft: '16px' }}>
+      <Button component={NavLink} to="/register" sx={{ padding: '0', marginLeft: '16px' }}>
         <Typography
           sx={{ ...typografyStyle }}
           onClick={onClickRegister}
           color={active === 'register' ? '#212121' : '#9B9FAA'}
         >
-          REGISTRATION
+          Реєстрація
         </Typography>
       </Button>
     </Box>
