@@ -14,7 +14,7 @@ import { Layout } from './components/Layout';
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 // const CalculatorPage = lazy(() => import('./pages/calculatorPage'));
 
-const DiaryPage = lazy(() => import('./pages/diaryPage'));
+const DiaryPage = lazy(() => import('./pages/DiaryPage/DiaryPage'));
 
 
 function App() {
@@ -39,9 +39,9 @@ function App() {
             element={<PublicRoute restricted redirectTo="/" />}
           > */}
 
-            <Route path="/login" element={<LoginPage />} />
-            {/* </Route> */}
-            {/* <Route
+              <Route path="/login" element={<LoginPage />} />
+              {/* </Route> */}
+              {/* <Route
 
             path="/calculator"
             element={<PrivateRoute redirectTo="/login" />}
