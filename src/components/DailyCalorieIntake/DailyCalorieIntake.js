@@ -20,8 +20,8 @@ const DailyCalorieIntake = () => {
 <div className={s.products}>
       <p className={s.description}>Продукти, які вам не варто вживати</p>
       
-      <ol type="disc" className={s.productList}>{userData.productsNotRecommended.map(product=> (
-        <li key={uuidv4()} >{product}</li>))}</ol>
+      <ol className={s.productList}>{userData.productsNotRecommended.slice(0,7).map(product=> (
+        <li key={uuidv4()} className={s.productItem}>{product}</li>))}</ol>
         </div>
 
         <div className={s.button}>

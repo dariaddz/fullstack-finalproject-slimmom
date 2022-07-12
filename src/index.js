@@ -7,7 +7,8 @@ import { ThemeProvider } from '@mui/material';
 import { theme } from './theme';
 import { Provider } from 'react-redux';
 import './fonts/fonts.css';
-import { store, persistor } from './redux/store';
+import store from './redux/store';
+import { persistor } from './redux/store';
 import { BrowserRouter } from 'react-router-dom';
 
 // import { PersistGate } from 'redux-persist/integration/react';

@@ -1,11 +1,15 @@
 import { useDispatch } from 'react-redux';
-import { add, postProduct } from '../redux/userSlice';
+import { postProduct } from '../../redux/userSlice';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Box, Container, Typography, TextField, styled } from '@mui/material';
-import {} from '@mui/material';
 import OrangeButton from '../../theme';
+import Modal from '../Modal';
+
+import DailyCalorieIntake from '../DailyCalorieIntake';
 import s from './DailyCaloriesForm.module.css';
 
 const MainContainer = styled(Container)(({ theme }) => ({
@@ -37,6 +41,8 @@ const FormLabel = styled('label')(({ theme }) => ({
     marginRight: '32px',
   },
 }));
+
+
 
 const validationSchema = yup.object().shape({
   height: yup
@@ -72,7 +78,12 @@ const validationSchema = yup.object().shape({
     .max(300),
 });
 
-const DailyCaloriesForm = ({ onOpenModal }) => {
+const DailyCaloriesForm = () => {
+  const userData = useSelector(state => {
+
+    return state.userData.user;
+  });
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -84,8 +95,7 @@ const DailyCaloriesForm = ({ onOpenModal }) => {
     },
 
     onSubmit: (values, actions) => {
-      console.log(JSON.stringify(values, null, 2));
-      console.log('formik:', formik.values);
+
       dispatch(postProduct(formik.values));
       actions.resetForm({
         initialValues: {
@@ -99,7 +109,7 @@ const DailyCaloriesForm = ({ onOpenModal }) => {
     },
     validationSchema: validationSchema,
   });
-  return (
+  return (<>
     <MainContainer >
       <Typography
         conponent="h2"
@@ -233,11 +243,26 @@ const DailyCaloriesForm = ({ onOpenModal }) => {
           </div>
         </FormBox>
 
-        <OrangeButton variant="contained" type="submit" onClick={onOpenModal}>
+        <OrangeButton variant="contained" type="submit" onClick={() => {
+                        setShowModal(true);
+                      }}>
           Схуднути
         </OrangeButton>
       </form>
     </MainContainer>
+
+{
+  showModal &&
+  userData && (
+    <Modal onClose={() => setShowModal(false)}>
+      {<DailyCalorieIntake />}
+    </Modal>
+
+    
+  )
+}
+
+</>
   );
 };
 
