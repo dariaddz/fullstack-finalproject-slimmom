@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { userSlice } from './userSlice';
 // import {
 //   persistStore,
 //   persistReducer,
@@ -20,8 +21,11 @@ import { configureStore } from '@reduxjs/toolkit';
 //   // додати до whitelist ще якусь property якщо її також потрібно зберігати в локал сторедж саме з auth
 // };
 
+
+
 export const store = configureStore({
   reducer: {
+    userData: userSlice.reducer,
     // auth: persistReducer(authPersistConfig, authReducer),
     // додати редьюсери кому які треба для роботи
   },
@@ -35,3 +39,5 @@ export const store = configureStore({
 });
 
 // export const persistor = persistStore(store);
+
+export default store;
