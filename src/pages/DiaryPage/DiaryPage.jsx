@@ -12,9 +12,9 @@ import AddIcon from '@mui/icons-material/Add';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 // import Loader from '../../components/Loader';
 
-import {
-  date,
-} from '../../redux/day/day_selector';
+// import {
+//   date,
+// } from '../../redux/day/day_selector';
 
 import styles from './DiaryPage.module.css';
 
@@ -27,7 +27,7 @@ const DiaryPage = () => {
   )
     .toISOString()
     .split('T')[0]; // Текущий день локально с учётом временных зон
-  const currentDate = useSelector(date); // Текущий день из базы
+  // const currentDate = useSelector(date); // Текущий день из базы
 
 
   const [mobileFormIsVisible, setMobileFormIsVisible] = useState(false);
@@ -58,7 +58,7 @@ const DiaryPage = () => {
                   customType="primary"
                   className="small"
                   onClick={handleClick}
-                  disabled={currentDate !== today}
+                  // disabled={currentDate !== today}
                 >
                   <AddIcon />
                 </Button>
