@@ -11,9 +11,9 @@ import { Layout } from './components/Layout';
 
 // const HomePage = lazy(() => import('./pages/homePage'));
 // const RegistrationPage = lazy(() => import('./pages/RegistrationPage'));
-// const LoginPage = lazy(() => import('./pages/loginPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
 // const CalculatorPage = lazy(() => import('./pages/calculatorPage'));
-const DiaryPage = lazy(() => import('./pages/DiaryPage'));
+// const DiaryPage = lazy(() => import('./pages/DiaryPage'));
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
             path="/login"
             element={<PublicRoute restricted redirectTo="/" />}
           > */}
-            {/* <Route path="/login" element={<LoginPage />} /> */}
+            <Route path="/login" element={<LoginPage />} />
             {/* </Route> */}
             {/* <Route
             path="/calculator"
@@ -53,7 +53,7 @@ function App() {
           </Route>
           {/* </Route>
           </Route> */}
-          <Route path="/diary" element={<DiaryPage />} />
+          {/* <Route path="/diary" element={<DiaryPage />} /> */}
         </Routes>
       </Suspense>
     </>
