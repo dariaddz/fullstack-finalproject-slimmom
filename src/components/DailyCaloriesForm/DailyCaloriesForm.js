@@ -108,6 +108,9 @@ const DailyCaloriesForm = () => {
   return (
     <>
       <MainContainer>
+    
+        <form onSubmit={formik.handleSubmit}>  
+        
         <Typography
           conponent="h2"
           display={'block'}
@@ -122,7 +125,6 @@ const DailyCaloriesForm = () => {
           Прорахуй свою добову норму калорій прямо зараз
         </Typography>
 
-        <form onSubmit={formik.handleSubmit}>
           <FormBox color="#9B9FAA">
             <FormLabel htmlFor="height">
               <TextField
@@ -194,8 +196,8 @@ const DailyCaloriesForm = () => {
               />
             </FormLabel>
 
-            {/* <div id="my-radio-group">Група крові*</div> */}
-            <div role="group" aria-labelledby="my-radio-group">
+           
+            <div role="group" aria-labelledby="my-radio-group" className={s.radioGroup}>
               <p className={s.titleRadio}>Група крові*</p>
               <label htmlFor="bloodType">
                 <input
@@ -239,7 +241,8 @@ const DailyCaloriesForm = () => {
               </label>
             </div>
           </FormBox>
-
+        
+ <div className={s.button}>
           <OrangeButton
             variant="contained"
             type="submit"
@@ -249,7 +252,9 @@ const DailyCaloriesForm = () => {
           >
             Схуднути
           </OrangeButton>
-        </form>
+          </div>
+          </form>
+       
       </MainContainer>
 
       {showModal && userData && (

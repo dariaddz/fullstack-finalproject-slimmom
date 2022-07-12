@@ -4,12 +4,20 @@
     top: 50%;
     background-color: #fff;
     width: 280px;
-    height: 80%;
+    height: 100vh;
     padding: 40px 20px;
+    margin-top: 32px;
+    background-image: url('../../images/mainPage/GreenLaptop.png');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+
 }
     @media screen and (min-width: 768px){
       .modal{  width: 672px;
-        height: 572px;}
+        height: 572px;
+        margin-top: 0;
+      border-radius: 25px;}
+ 
     }
 
   
