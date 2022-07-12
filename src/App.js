@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import './App.css';
 import DailyCaloriesForm from './components/DailyCaloriesForm';
-import MainPage from './components/MainPage/MainPage';
+import MainPage from './components/MainPage/mainPage';
 
 import { Layout } from './components/Layout';
 
@@ -15,7 +15,6 @@ const LoginPage = lazy(() => import('./pages/LoginPage'));
 // const CalculatorPage = lazy(() => import('./pages/calculatorPage'));
 
 const DiaryPage = lazy(() => import('./pages/diaryPage'));
-
 
 function App() {
   return (
@@ -39,14 +38,14 @@ function App() {
             element={<PublicRoute restricted redirectTo="/" />}
           > */}
 
-            <Route path="/login" element={<LoginPage />} />
-            {/* </Route> */}
-            {/* <Route
+              <Route path="/login" element={<LoginPage />} />
+              {/* </Route> */}
+              {/* <Route
 
             path="/calculator"
             element={<PrivateRoute redirectTo="/login" />}
           > */}
-              {/* <Route path="/diary" element={<DiaryPage />} /> */}
+              <Route path="/diary" element={<DiaryPage />} />
               {/* </Route> */}
               {/* <Route
             path="*"
@@ -60,7 +59,6 @@ function App() {
 
             <Route path="/diary" element={<DiaryPage />} />
           </Route>
-
         </Routes>
       </Suspense>
     </>

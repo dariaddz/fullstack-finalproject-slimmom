@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
 import debounce from 'lodash.debounce';
-import styles from './DiaryAddProductForm.module.css';
+import styles from './diaryAddProductForm.module.css';
 // import MainButton from '../../common/MainButton'
 import Button from '../Button';
 

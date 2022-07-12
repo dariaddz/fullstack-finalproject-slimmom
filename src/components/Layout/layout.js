@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { Appbar } from '../Appbar';
+import  Appbar  from '../Appbar';
 import Container from '@mui/material/Container';
 
 export const Layout = () => {

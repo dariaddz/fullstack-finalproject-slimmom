@@ -1,11 +1,8 @@
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
-import s from '../Modal/Modal.module.css';
-
-
+import s from '../Modal/modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
-
 
 function Modal({ onClose, children }) {
   useEffect(() => {
@@ -27,16 +24,12 @@ function Modal({ onClose, children }) {
 
   return createPortal(
     <div className={s.overlay} onClick={handleBackdropclick}>
-      
       <div className={s.modal}>
-      
-      <button className={s.btnCloseModal} type="button" onClick={onClose}>
-        x
-      </button>
-      
-      {children}
+        <button className={s.btnCloseModal} type="button" onClick={onClose}>
+          x
+        </button>
 
-
+        {children}
       </div>
     </div>,
     modalRoot

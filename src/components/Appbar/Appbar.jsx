@@ -7,9 +7,9 @@ import { AuthNav } from '../AuthNav';
 import Navigation from '../Navigation';
 import UserInfo from '../UserInfo';
 
-export const Appbar = () => {
+function Appbar ()  {
   // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  const isLoggedIn = true
+  const isLoggedIn = false
 
   return (
     <>
@@ -58,3 +58,5 @@ export const Appbar = () => {
     </>
   );
 };
+
+export default Appbar

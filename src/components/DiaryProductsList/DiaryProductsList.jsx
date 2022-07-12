@@ -1,6 +1,6 @@
 import React from 'react';
 import { Close } from '@mui/icons-material';
-import s from './DiaryProductsListItem.module.css';
+import s from './diaryProductsListItem.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { date, dateId } from '../../redux/day/day_selector';
 import { deleteProduct } from '../../redux/day/day_operation';

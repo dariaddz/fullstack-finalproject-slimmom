@@ -6,10 +6,10 @@ import ruRu from 'date-fns/locale/ru';
 // import { getDay } from '../../redux/day/day_operation';
 // import { getUserId, getDays } from '../../redux/user/user_selector';
 
-import styles from './DateForm.module.css';
+import styles from './dateForm.module.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
-import { ReactComponent as CalendarIcon } from '../../images/calendar.svg'
+import { ReactComponent as CalendarIcon } from '../../images/calendar.svg';
 
 // Компонент выбора даты на календаре
 const DateForm = () => {
@@ -23,7 +23,7 @@ const DateForm = () => {
 
   // Текущий день с учётом временных зон
   const isoDateTime = new Date(
-    startDate.getTime() - startDate.getTimezoneOffset() * 60000,
+    startDate.getTime() - startDate.getTimezoneOffset() * 60000
   )
     .toISOString()
     .split('T')[0];

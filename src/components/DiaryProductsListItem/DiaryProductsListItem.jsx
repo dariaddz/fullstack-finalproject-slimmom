@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './DiaryProductsListItem.module.css';
+import s from './diaryProductsListItem.module.css';
 import { Close } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteProduct } from '../../redux/day/day_operation';
