@@ -5,23 +5,22 @@ import { Box, TextField, Typography, Button } from '@mui/material';
 const validateRegister = values => {
   const errors = {};
   if (!values.email) {
-    errors.email = 'Required';
+    errors.email = "Обов'зкове поле";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address';
+    errors.email = 'Не вірний формат адреси ';
   }
   if (!values.password) {
-    errors.password = 'Required';
-  } else if (values.password.length < 7) {
-    errors.password = 'Invalid password';
+    errors.password = "Обов'зкове поле";
+  } else if (values.password.length < 6) {
+    errors.password = 'Не вірний формат паролю';
   }
   return errors;
 };
 
-export const LoginForm = ({ onLogin, isFetching }) => {
+export const LoginForm = ({ onLogin }) => {
   const navigate = useNavigate();
 
   const initialValues = {
-    name: '',
     email: '',
     password: '',
   };
@@ -30,7 +29,8 @@ export const LoginForm = ({ onLogin, isFetching }) => {
     initialValues,
     validate: validateRegister,
     enableReinitialize: true,
-    onSubmit: ({ email, password }) => {
+    onSubmit: ({ email, password }, { resetForm }) => {
+      resetForm({ initialValues });
       onLogin({ email, password });
     },
   });
@@ -72,7 +72,7 @@ export const LoginForm = ({ onLogin, isFetching }) => {
               color: '#FC842D',
             }}
           >
-            SIGN IN
+            ВХІД
           </Typography>
         </Box>
         <Box
@@ -93,7 +93,7 @@ export const LoginForm = ({ onLogin, isFetching }) => {
               variant="standard"
               id="email"
               name="email"
-              label="Email *"
+              label="Електронна пошта *"
               value={formik.values.email}
               onChange={formik.handleChange}
               error={formik.touched.email && Boolean(formik.errors.email)}
@@ -110,7 +110,7 @@ export const LoginForm = ({ onLogin, isFetching }) => {
               variant="standard"
               id="password"
               name="password"
-              label="Password *"
+              label="Пароль *"
               value={formik.values.password}
               onChange={formik.handleChange}
               error={formik.touched.password && Boolean(formik.errors.password)}
@@ -129,10 +129,9 @@ export const LoginForm = ({ onLogin, isFetching }) => {
             sx={{ ...buttonLR, margin: { xs: '0 0 20px 0', md: '0 32px 0 0' } }}
             color="buttonLogin"
             type="submit"
-            // onClick={onSabmitForm}
           >
             <Typography sx={{ ...labelFontStyle, color: '#FFFFFF' }}>
-              Login
+              Вхід
             </Typography>
           </Button>
           <Button
@@ -149,7 +148,7 @@ export const LoginForm = ({ onLogin, isFetching }) => {
             }}
           >
             <Typography sx={{ ...labelFontStyle, color: '#FC842D' }}>
-              Register
+              Реєстрація
             </Typography>
           </Button>
         </Box>
