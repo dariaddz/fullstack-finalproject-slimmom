@@ -2,6 +2,10 @@ import { Box } from '@mui/material';
 import { LoginForm } from '../../components/LoginForm';
 
 export const LoginPage = () => {
+  const onLogin = ({ email, password }) => {
+    console.log(email, password);
+  };
+
   return (
     <Box
       sx={{
@@ -16,7 +20,7 @@ export const LoginPage = () => {
         // margin: { xs: '40px 0 0 0', md: '160px 0 0 0' },
       }}
     >
-      <LoginForm />
+      <LoginForm onLogin={onLogin} />
     </Box>
   );
 };

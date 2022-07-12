@@ -11,17 +11,16 @@ const validateRegister = values => {
   }
   if (!values.password) {
     errors.password = 'Required';
-  } else if (values.password.length < 7) {
+  } else if (values.password.length < 6) {
     errors.password = 'Invalid password';
   }
   return errors;
 };
 
-export const LoginForm = ({ onLogin, isFetching }) => {
+export const LoginForm = ({ onLogin }) => {
   const navigate = useNavigate();
 
   const initialValues = {
-    name: '',
     email: '',
     password: '',
   };
@@ -30,7 +29,8 @@ export const LoginForm = ({ onLogin, isFetching }) => {
     initialValues,
     validate: validateRegister,
     enableReinitialize: true,
-    onSubmit: ({ email, password }) => {
+    onSubmit: ({ email, password }, { resetForm }) => {
+      resetForm({ initialValues });
       onLogin({ email, password });
     },
   });
@@ -129,7 +129,6 @@ export const LoginForm = ({ onLogin, isFetching }) => {
             sx={{ ...buttonLR, margin: { xs: '0 0 20px 0', md: '0 32px 0 0' } }}
             color="buttonLogin"
             type="submit"
-            // onClick={onSabmitForm}
           >
             <Typography sx={{ ...labelFontStyle, color: '#FFFFFF' }}>
               Login
