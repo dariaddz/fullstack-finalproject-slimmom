@@ -16,7 +16,7 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 //   date,
 // } from '../../redux/day/day_selector';
 
-import styles from './DiaryPage.module.css';
+import styles from './diaryPage.module.css';
 
 const DiaryPage = () => {
   const dispatch = useDispatch();

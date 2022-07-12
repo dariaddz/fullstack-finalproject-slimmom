@@ -11,10 +11,10 @@ import { Layout } from './components/Layout';
 
 // const HomePage = lazy(() => import('./pages/homePage'));
 // const RegistrationPage = lazy(() => import('./pages/RegistrationPage'));
-const LoginPage = lazy(() => import('./pages/LoginPage'));
+const LoginPage = lazy(() => import('./pages/loginPage'));
 // const CalculatorPage = lazy(() => import('./pages/calculatorPage'));
 
-const DiaryPage = lazy(() => import('./pages/DiaryPage/DiaryPage'));
+const DiaryPage = lazy(() => import('./pages/diaryPage/diaryPage'));
 
 function App() {
   return (
