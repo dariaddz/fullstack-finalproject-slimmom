@@ -84,59 +84,78 @@ export const LoginForm = ({ onRegistration, isFetching }) => {
   };
 
   return (
-    <Box
-      sx={{
-        width: { xs: '280px', md: '240px' },
-        margin: { xs: 'auto', md: '0' },
-        display: 'flex',
-        justifyContent: 'center',
-      }}
-    >
-      <form color="black" onSubmit={formik.handleSubmit}>
-        <TextField
-          sx={{ display: 'block' }}
-          InputLabelProps={{ style: { ...labelFontStyle } }}
-          inputProps={{ style: { color: '#111111' } }}
-          variant="standard"
-          fullWidth
-          id="name"
-          name="name"
-          label="Name *"
-          value={formik.values.name}
-          onChange={formik.handleChange}
-          error={formik.touched.name && Boolean(formik.errors.name)}
-          helperText={formik.touched.name && formik.errors.name}
-        />
-        <TextField
-          sx={{ display: 'block' }}
-          InputLabelProps={{ style: { ...labelFontStyle } }}
-          inputProps={{ style: { color: '#111111' } }}
-          variant="standard"
-          fullWidth
-          id="email"
-          name="email"
-          label="Email *"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
-        />
-        <TextField
-          sx={{ display: 'block' }}
-          InputLabelProps={{ style: { ...labelFontStyle } }}
-          inputProps={{ style: { color: '#111111' } }}
-          variant="standard"
-          fullWidth
-          id="password"
-          name="password"
-          label="Password *"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
-        />
-        <Button text="Login" customType="primary"></Button>
-      </form>
-    </Box>
+    <form color="black" onSubmit={formik.handleSubmit}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          // alignItems: { xs: 'center', md: 'left' },
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: { xs: '280px', md: '240px' },
+            alignItems: 'center',
+          }}
+        >
+          <TextField
+            InputLabelProps={{ style: { ...labelFontStyle } }}
+            inputProps={{ style: { color: '#111111' } }}
+            sx={{ width: { xs: '280px', md: '240px' } }}
+            variant="standard"
+            id="name"
+            name="name"
+            label="Name *"
+            value={formik.values.name}
+            onChange={formik.handleChange}
+            error={formik.touched.name && Boolean(formik.errors.name)}
+            helperText={formik.touched.name && formik.errors.name}
+          />
+          <TextField
+            InputLabelProps={{ style: { ...labelFontStyle } }}
+            inputProps={{ style: { color: '#111111' } }}
+            sx={{ width: { xs: '280px', md: '240px' } }}
+            variant="standard"
+            id="email"
+            name="email"
+            label="Email *"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            error={formik.touched.email && Boolean(formik.errors.email)}
+            helperText={formik.touched.email && formik.errors.email}
+          />
+          <TextField
+            InputLabelProps={{ style: { ...labelFontStyle } }}
+            inputProps={{
+              style: { color: '#111111' },
+            }}
+            sx={{ width: { xs: '280px', md: '240px' } }}
+            variant="standard"
+            id="password"
+            name="password"
+            label="Password *"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            error={formik.touched.password && Boolean(formik.errors.password)}
+            helperText={formik.touched.password && formik.errors.password}
+          />
+        </Box>
+
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            alignItems: { xs: 'center', md: 'center' },
+            justifyContent: { xs: 'center', md: 'center' },
+            width: '184px',
+          }}
+        >
+          <Button text="Login" customType="primary"></Button>
+          <Button text="Register"></Button>
+        </Box>
+      </Box>
+    </form>
   );
 };

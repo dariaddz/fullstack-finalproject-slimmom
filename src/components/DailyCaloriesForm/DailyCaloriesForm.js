@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
-import { add, postProduct } from '../redux/userSlice';
+import { add, postProduct } from '../../redux/userSlice';
 
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Box, Container, Typography, TextField, styled } from '@mui/material';
-import {} from '@mui/material';
+import { } from '@mui/material';
 import OrangeButton from '../../theme';
 import s from './DailyCaloriesForm.module.css';
 
@@ -198,7 +198,7 @@ const DailyCaloriesForm = ({ onOpenModal }) => {
                 onChange={formik.handleChange}
                 checked={formik.values.bloodType === '1'}
               /><span className={s.radioButton}>1</span>
-              
+
             </label>
             <label htmlFor="bloodType">
               <input
@@ -208,7 +208,7 @@ const DailyCaloriesForm = ({ onOpenModal }) => {
                 onChange={formik.handleChange}
                 checked={formik.values.bloodType === '2'}
               />
-             <span className={s.radioButton}>2</span>
+              <span className={s.radioButton}>2</span>
             </label>
             <label htmlFor="bloodType">
               <input
