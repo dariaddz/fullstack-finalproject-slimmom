@@ -11,7 +11,6 @@ import './fonts/fonts.css';
 import store from './redux/store';
 import { persistor } from './redux/store';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
 // import { PersistGate } from 'redux-persist/integration/react';
 
 import './fonts/fonts.css';
