@@ -8,12 +8,6 @@ const initialState = {
   isFetchingCurrentUser: false,
 };
 
-const registerAndLogin = (state, action) => {
-  state.user = action.payload.user;
-  state.token = action.payload.token;
-  state.isLoggedIn = true;
-};
-
 const resetToInitialState = state => {
   state.user = { name: null, email: null };
   state.token = null;
@@ -24,20 +18,12 @@ const loginSlice = createSlice({
   name: 'login',
   initialState,
   extraReducers: {
-    [loginOperations.register.fulfilled](state, action) {
-      registerAndLogin(state, action);
-    },
     [loginOperations.logIn.fulfilled](state, action) {
-      registerAndLogin(state, action);
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+      state.isLoggedIn = true;
     },
     [loginOperations.logIn.rejected](state) {
-      resetToInitialState(state);
-    },
-
-    [loginOperations.logOut.fulfilled](state) {
-      resetToInitialState(state);
-    },
-    [loginOperations.logOut.rejected](state) {
       resetToInitialState(state);
     },
     [loginOperations.fetchCurrentUser.pending](state) {

@@ -10,8 +10,11 @@ export const LoginPage = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
-  const onLogin = ({ email, password }) => {
-    dispatch(loginOperations.logIn({ email, password }));
+  const onLogin = async ({ email, password }) => {
+    const data = await dispatch(
+      loginOperations.logIn({ email, password })
+    ).then(data => console.log('promis', data));
+    console.log('loginpage', data);
   };
 
   return (

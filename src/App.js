@@ -7,6 +7,14 @@ import MainPage from './components/MainPage/mainPage';
 
 import { Layout } from './components/Layout';
 
+// -- Eugen
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginOperations, loginSelectors } from './redux/login';
+import { PrivatRoute } from './services/PrivateRoute';
+import PublicRoute from './services/PublicRoute';
+//-- Eugen
+
 // import PrivateRoute from './components/PrivateRoute';
 // import PublicRoute from './components/PublicRoute';
 
@@ -17,6 +25,13 @@ const LoginPage = lazy(() => import('./pages/loginPage'));
 const DiaryPage = lazy(() => import('./pages/diaryPage/diaryPage'));
 
 function App() {
+  //--Eugen
+  const dispatch = useDispatch();
+  // const isFetchingCurrentUser = useSelector(loginSelectors.getIsFetchingCurrent);
+  useEffect(() => {
+    dispatch(loginOperations.fetchCurrentUser());
+  }, [dispatch]);
+  //--Eugen
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>
@@ -38,7 +53,19 @@ function App() {
             element={<PublicRoute restricted redirectTo="/" />}
           > */}
 
-              <Route path="/login" element={<LoginPage />} />
+              {/* Eugen */}
+              <Route
+                path="login"
+                element={
+                  <PublicRoute
+                    component={<LoginPage />}
+                    redirectTo="/"
+                    restricted
+                  />
+                }
+              />
+              {/* Eugen */}
+
               {/* </Route> */}
               {/* <Route
 
