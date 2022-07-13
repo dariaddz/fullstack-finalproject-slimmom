@@ -1,1 +1,3 @@
-export { default } from './DateForm';
+import DateForm from './dateForm';
+
+export default DateForm;

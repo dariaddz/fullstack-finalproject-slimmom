@@ -1,4 +1,4 @@
-import styles from './Button.module.css';
+import styles from './button.module.css';
 
 const Button = ({
   text,
@@ -25,3 +25,5 @@ const Button = ({
 };
 
 export default Button;
+
+/* rename */

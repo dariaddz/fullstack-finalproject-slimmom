@@ -1,0 +1,28 @@
+.MuiInputBase-input.MuiInput-input {
+  font-family: 'Verdana', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+  padding-bottom: 10px;
+}
+
+
+
+/* Херобора для календаря */
+.react-datepicker__day.react-datepicker__day--selected,
+.react-datepicker__day.react-datepicker__day--keyboard-selected {
+  background-color: #fc842d;
+  color: white;
+  opacity: 1;
+  transition: opacity 250ms linear;
+}
+
+.react-datepicker__day.react-datepicker__day--selected:hover,
+.react-datepicker__day.react-datepicker__day--keyboard-selected:hover {
+  background-color: #fc842d;
+  opacity: 0.8;
+  transition: opacity 250ms linear;
+}

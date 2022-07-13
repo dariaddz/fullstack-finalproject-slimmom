@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material';
+import { Button, styled } from '@mui/material';
 
 export const theme = createTheme({
   palette: {
@@ -8,6 +9,15 @@ export const theme = createTheme({
     },
     secondary: {
       main: '#FC842D',
+      hover: '#FF0707',
+    },
+    buttonLogin: {
+      main: '#FC842D',
+      dark: '#e77828',
+    },
+    buttonRegister: {
+      main: '#FC842D',
+      dark: '#e4c3ab',
     },
     background: {
       main: '#FFFFFF',
@@ -30,3 +40,16 @@ export const theme = createTheme({
     },
   },
 });
+
+const OrangeButton = styled(Button)(({ theme }) => ({
+  padding: '13px 25px',
+  margin: '40px ',
+  alignItems: 'center',
+  borderRadius: '30px',
+  height: '43px',
+  color: theme.palette.background.main,
+  backgroundColor: theme.palette.secondary.main,
+  '&:hover': { backgroundColor: theme.palette.secondary.hover },
+}));
+
+export default OrangeButton;

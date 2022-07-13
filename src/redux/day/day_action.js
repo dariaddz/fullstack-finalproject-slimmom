@@ -1,7 +1,22 @@
 import { createAction } from '@reduxjs/toolkit';
+const addProductRequest = createAction('products/addProductRequest');
+const addProductSuccess = createAction('products/addProductSuccess');
+const addProductError = createAction('products/addProductError');
 
-export const addProductRequest = createAction('products/addProductRequest');
-export const addProductSuccess = createAction('products/addProductSuccess');
-export const addProductError = createAction('products/addProductError');
+const dateEatenProductsRequest = createAction(
+  'products/dateEatenProductsRequest'
+);
+const dateEatenProductsSuccess = createAction(
+  'products/dateEatenProductsSuccess'
+);
+const dateEatenProductsError = createAction('products/dateEatenProductsError');
 
-export const reset = createAction('products/resetDayInfo');
+const productActions = {
+  addProductRequest,
+  addProductSuccess,
+  addProductError,
+  dateEatenProductsRequest,
+  dateEatenProductsSuccess,
+  dateEatenProductsError,
+};
+export default productActions;

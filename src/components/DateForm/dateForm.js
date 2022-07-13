@@ -1,15 +1,15 @@
 import { useState, forwardRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import DatePicker, { registerLocale } from 'react-datepicker';
-import uaUA from 'date-fns/locale/ua';
+import ruRu from 'date-fns/locale/ru';
 
 // import { getDay } from '../../redux/day/day_operation';
 // import { getUserId, getDays } from '../../redux/user/user_selector';
 
-import styles from './DateForm.module.css';
+import styles from './dateForm.module.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
-import { ReactComponent as CalendarIcon } from '../../images/calendar';
+import { ReactComponent as CalendarIcon } from '../../images/calendar.svg';
 
 // Компонент выбора даты на календаре
 const DateForm = () => {
@@ -21,9 +21,9 @@ const DateForm = () => {
 
   // const includeDays = days?.map(day => new Date(day.date)); // массив дней юзера в нужном формате
 
-  // Текущий день с учётом временных зон, мать их
+  // Текущий день с учётом временных зон
   const isoDateTime = new Date(
-    startDate.getTime() - startDate.getTimezoneOffset() * 60000,
+    startDate.getTime() - startDate.getTimezoneOffset() * 60000
   )
     .toISOString()
     .split('T')[0];
@@ -32,9 +32,8 @@ const DateForm = () => {
   //   dispatch(getDay(userId, isoDateTime));
   // }, [dispatch, startDate, isoDateTime, userId]);
 
-  registerLocale('ua-UA', uaUA);
+  registerLocale('ru-RU', ruRu);
 
-  // Кастомный инпут библиотеки (содержит дату и иконку)
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <>
       <span
@@ -43,7 +42,7 @@ const DateForm = () => {
         ref={ref}
         title="Нажміть для вибору дати"
       >
-        {startDate.toLocaleDateString('ua-UA')}
+        {startDate.toLocaleDateString('ru-RU')}
       </span>
 
       <span>
@@ -69,10 +68,13 @@ const DateForm = () => {
         maxDate={new Date()}
         // includeDates={includeDays}
         todayButton="Сьогодні"
-        locale="ua-UA"
+        locale="ru-RU"
       />
     </div>
   );
 };
 
 export default DateForm;
+
+
+/* rename */
