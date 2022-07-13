@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'http://localhost:3001/api/users';
 
 const token = {
   set(currentToken) {
@@ -14,97 +14,54 @@ const token = {
   },
 };
 
-const register = createAsyncThunk(
-  'auth/register',
-  async (credentials, thunkAPI) => {
-    try {
-      const { data } = await axios.post('/users/signup', credentials);
-      token.set(data.token);
-      toast.success('The user has been created.', { duration: 4000 });
-      return data;
-    } catch (error) {
-      if (error.response.status === 400) {
-        toast.error('Error creating user.\nThis email is already in use.', {
-          duration: 4000,
-        });
-      }
-      if (error.response.status === 500) {
-        toast.error('No server response.', { duration: 4000 });
-      }
-      return thunkAPI.rejectWithValue();
-    }
-  }
-);
-
-const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
+const logIn = createAsyncThunk('login/login', async (credentials, thunkAPI) => {
   try {
-    const { data } = await axios.post('/users/login', credentials);
+    const { data } = await axios.post('/login', credentials);
+    // console.log('loginoperation', data);
     token.set(data.token);
-    toast.success('You have logged in successfully', { duration: 4000 });
-    return data;
+    toast.success('Ви успішно увійшли');
+    console.log(data.data);
+    return data.data;
   } catch (error) {
     if (error.response.status === 400) {
-      toast.error('Registration error.\nCheck the entered data.', {
-        duration: 4000,
-      });
+      toast.error('Помилка реєстрації.\nПеревірте введені дані.');
     }
     if (error.response.status === 500) {
-      toast.error('No server response.', { duration: 4000 });
+      toast.error('Немає відповіді від сервера.');
     }
     return thunkAPI.rejectWithValue();
   }
 });
 
-const logOut = createAsyncThunk('auth/logout', async () => {
-  try {
-    await axios.post('/users/logout');
-    token.unset();
-    toast.success('Your session is closed', { duration: 4000 });
-  } catch (error) {
-    if (error.response.status === 401) {
-      toast.error('User authentication error', { duration: 4000 });
-    }
-    if (error.response.status === 500) {
-      toast.error('No server response.', { duration: 4000 });
-    }
-    return;
-  }
-});
-
 const fetchCurrentUser = createAsyncThunk(
-  'auth/refresh',
+  'login/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-
+    const persistedToken = state.login.token;
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
 
     token.set(persistedToken);
     try {
-      const { data } = await axios.get('/users/current');
-      toast.success('Your session has been restored', { duration: 4000 });
+      const { data } = await axios.get('/current');
+      toast.success('Ваша сессія відновлена');
       return data;
     } catch (error) {
       if (error.response.status === 401) {
         toast.error(
-          'You are not logged in or your session has timed out.\nPlease login.',
-          { duration: 4000 }
-        );
+          'Ви не залогінелись, або час сессії вичерпано.\nБудь-ласка залогінтесь.');
       }
       if (error.response.status === 500) {
-        toast.error('No server response.', { duration: 4000 });
+        toast.error('Немає відповіді від сервера.');
       }
       return thunkAPI.rejectWithValue();
     }
   }
 );
 
-const authOperations = {
-  register,
-  logOut,
+const loginOperations = {
   logIn,
   fetchCurrentUser,
 };
-export default authOperations;
+export default loginOperations;

@@ -11,7 +11,7 @@ const validateRegister = values => {
   }
   if (!values.password) {
     errors.password = "Обов'зкове поле";
-  } else if (values.password.length < 6) {
+  } else if (values.password.length < 8) {
     errors.password = 'Не вірний формат паролю';
   }
   return errors;
