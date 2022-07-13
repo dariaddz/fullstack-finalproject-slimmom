@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // import Header from '../../components/Header';
 import DateForm from '../../components/DateForm';
-import DiaryAddProductForm from '../../components/DiaryAddProductForm';
+// import DiaryAddProductForm from '../../components/DiaryAddProductForm';
 // import RightSideBar from '../../components/RightSideBar';
 // import DiaryProductsList from '../../components/DiaryProductsList';
 import Button from '../../components/Button';
@@ -49,7 +49,7 @@ const DiaryPage = () => {
             <div className={styles.exampleBox}>
               <DateForm />
               <div className={styles.isHidddenMobile}>
-                <DiaryAddProductForm />
+                {/* <DiaryAddProductForm /> */}
               </div>
 
               {/* <DiaryProductsList /> */}
@@ -68,7 +68,7 @@ const DiaryPage = () => {
         ) : (
           <>
             <div className={styles.exampleBox}>
-              <DiaryAddProductForm />
+              {/* <DiaryAddProductForm /> */}
               <KeyboardBackspaceIcon
                 className={styles.backButton}
                 onClick={handleClick}
@@ -82,3 +82,6 @@ const DiaryPage = () => {
 };
 
 export default DiaryPage;
+
+
+// rename

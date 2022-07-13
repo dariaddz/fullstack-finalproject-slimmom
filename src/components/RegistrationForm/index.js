@@ -1,1 +1,3 @@
-export { default } from './registrationForm.js';
+import RegistrationForm from './registrationForm';
+
+export default RegistrationForm;

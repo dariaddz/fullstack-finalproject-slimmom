@@ -1,1 +1,2 @@
-export { default } from './userInfo.js';
+import UserInfo from './userInfo';
+export default UserInfo;

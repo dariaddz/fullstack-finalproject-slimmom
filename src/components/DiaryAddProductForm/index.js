@@ -1,1 +1,3 @@
-export { default } from './diaryAddProductForm.js';
+import DiaryAddProductForm from './diaryAddProductForm';
+
+export default DiaryAddProductForm;

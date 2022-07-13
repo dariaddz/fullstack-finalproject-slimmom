@@ -233,3 +233,7 @@
   letter-spacing: 0.04em;
   color: #9b9faa; */
 /* }    */
+
+.emptyRule{
+  margin:0
+}

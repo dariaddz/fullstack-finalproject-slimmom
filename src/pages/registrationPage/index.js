@@ -1,1 +1,2 @@
-export { default } from './registrationPage.js';
+import RegistrationPage from './registrationPage';
+export default RegistrationPage;

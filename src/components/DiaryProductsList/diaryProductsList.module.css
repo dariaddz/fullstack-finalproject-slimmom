@@ -1,0 +1,33 @@
+.wrapper {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.container {
+  max-height: 210px;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding-right: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    margin-bottom: 0;
+  }
+
+  .container {
+    padding-right: 40px;
+    max-height: 240px;
+    max-width: 610px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-height: 305px;
+    max-width: 620px;
+  }
+}
+
+/* rename */
+

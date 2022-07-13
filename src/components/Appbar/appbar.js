@@ -2,8 +2,8 @@ import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
 
 import { Box } from '@mui/material';
-import { Logo } from '../Logo';
-import { AuthNav } from '../AuthNav';
+import  Logo  from '../Logo';
+import  AuthNav  from '../AuthNav';
 import Navigation from '../Navigation';
 import UserInfo from '../UserInfo';
 

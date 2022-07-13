@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { Notyf } from 'notyf';
+// import { Notyf } from 'notyf';
 
 import authSelectors from './auth-selectors';
 
 axios.defaults.baseURL = '';
 
-const notyf = new Notyf();
+// const notyf = new Notyf();
 
 const token = {
   set: token => {
@@ -39,7 +39,7 @@ const register = createAsyncThunk(
     } catch (err) {
       const errorMsg = err?.response?.data?.message;
 
-      if (errorMsg) notyf.error(errorMsg);
+      // if (errorMsg) notyf.error(errorMsg);
 
       return rejectWithValue(err?.response?.data);
     }
@@ -50,3 +50,5 @@ const operations = {
 };
 
 export default operations;
+
+// закоментила все что касается notyf
