@@ -8,7 +8,7 @@ import RegistrationForm from '../../components/RegistrationForm';
 
 import { getLoading } from '../../redux/auth/auth-selector';
 
-import styles from '../../components/RegistrationForm/registrationForm.module.css';
+import styles from './registrationPage.module.css';
 
 const RegistrationPage = () => {
   const isLoading = useSelector(getLoading); // Селектор статуса загрузки
@@ -27,3 +27,5 @@ const RegistrationPage = () => {
 };
 
 export default RegistrationPage;
+
+/* rename */
