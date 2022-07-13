@@ -13,7 +13,6 @@ import { Provider } from 'react-redux';
 
 import './fonts/fonts.css';
 
-
 ReactDOM.createRoot(document.querySelector('#root')).render(
   <Provider store={store}>
     {/* <PersistGate loading={null} persistor={persistor}> */}

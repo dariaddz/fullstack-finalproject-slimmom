@@ -21,44 +21,42 @@ function App() {
     <>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<MainPage/>}>
+          <Route path="/" element={<MainPage />}>
             {/* <Route path="/" element={<PublicRoute />}> */}
-            <Route index element={<HomePage />}/>
-            
+            <Route index element={<HomePage />} />
 
-              {/* <Route
+            {/* <Route
             path="/register"
             element={<PublicRoute restricted redirectTo="/" />}
           > */}
-              {/* <Route path="register" element={<RegistrationPage />} /> */}
-              {/* </Route> */}
-              {/* <Route
+            {/* <Route path="register" element={<RegistrationPage />} /> */}
+            {/* </Route> */}
+            {/* <Route
             path="/login"
             element={<PublicRoute restricted redirectTo="/" />}
           > */}
 
-              <Route path="/login" element={<LoginPage />} />
-              {/* </Route> */}
-              {/* <Route
+            <Route path="/login" element={<LoginPage />} />
+            {/* </Route> */}
+            {/* <Route
 
             path="/calculator"
             element={<PrivateRoute redirectTo="/login" />}
           > */}
-              {/* <Route path="/diary" element={<DiaryPage />} /> */}
-              {/* </Route> */}
-              {/* <Route
+            {/* <Route path="/diary" element={<DiaryPage />} /> */}
+            {/* </Route> */}
+            {/* <Route
 
             path="*"
             element={<PublicRoute restricted redirectTo="/diary" />}
           >
             <Route path="*" element={<NotFoundPage />} />
           </Route> */}
-            </Route>
-            {/* </Route>
+          </Route>
+          {/* </Route>
           </Route> */}
 
-            {/* <Route path="/diary" element={<DiaryPage />} /> */}
-          
+          {/* <Route path="/diary" element={<DiaryPage />} /> */}
         </Routes>
       </Suspense>
     </>

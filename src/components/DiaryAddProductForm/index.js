@@ -1,3 +1,3 @@
-import DiaryAddProductForm from './diaryAddProductForm'
+import DiaryAddProductForm from './diaryAddProductForm';
 
 export default DiaryAddProductForm;

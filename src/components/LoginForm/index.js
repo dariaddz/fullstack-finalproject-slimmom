@@ -1,2 +1,2 @@
-import  LoginForm  from './loginForm.js';
-export default LoginForm ;
+import LoginForm from './loginForm.js';
+export default LoginForm;
